@@ -4,7 +4,7 @@ namespace Yveschiu\DataStructures\Abstracts;
 
 use Yveschiu\DataStructures\Node;
 
-interface Tree extends PreOrderTraversable, PostOrderTraversable, InOrderTraversable
+interface Tree extends MassCreatable, PreOrderTraversable, PostOrderTraversable, InOrderTraversable
 {
     /**
      * insert a node into the tree
