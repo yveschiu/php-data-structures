@@ -10,11 +10,47 @@ use ArgumentCountError;
 
 final class BSTTest extends TestCase
 {
-
     public function testBSTCannotBeCreatedFromEmptyArray(): void
     {
         $this->expectException(ArgumentCountError::class);
-        $bstTree = $this->createBST([]);
+        $this->createBST([]);
+    }
+
+    public function testBSTCanBeCreatedFromOneElementArray(): void
+    {
+        $bstTree = $this->createBST([1]);
+        $this->assertNotNull($bstTree);
+    }
+
+    public function testOneElementBSTHasNoSuccessorAndPredecessor(): void
+    {
+        $bstTree = $this->createBST([1]);
+        $this->assertNull($bstTree->root->successor());
+        $this->assertNull($bstTree->root->predecessor());
+    }
+
+    public function testMaxLeafNodeHasNoSuccessor(): void
+    {
+        $bstTree = $this->createBST([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        $this->assertNull($bstTree->findMax()->successor());
+    }
+
+    public function testMinLeafNodeHasNoPredecessor(): void
+    {
+        $bstTree = $this->createBST([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        $this->assertNull($bstTree->findMin()->predecessor());
+    }
+
+    public function testBSTCanFindMaxCorrectly(): void
+    {
+        $bstTree = $this->createBST([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        $this->assertEquals(9, $bstTree->findMax()->data);
+    }
+
+    public function testBSTCanFindMinCorrectly(): void
+    {
+        $bstTree = $this->createBST([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        $this->assertEquals(1, $bstTree->findMin()->data);
     }
 
     public function testBSTCanSearchCorrectly(): void
