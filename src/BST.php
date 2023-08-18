@@ -4,6 +4,7 @@ namespace Yveschiu\DataStructures;
 
 use Yveschiu\DataStructures\Abstracts\Tree;
 use Yveschiu\DataStructures\Node;
+use ArgumentCountError;
 
 class BST implements Tree
 {
@@ -20,6 +21,9 @@ class BST implements Tree
      */
     public static function create(array $data): self
     {
+        if (count($data) === 0) {
+            throw new ArgumentCountError('Cannot create BST from empty array');
+        }
         // pick the middle element as the root
         sort($data);
         $rootIndex = (int) floor(count($data) / 2);
