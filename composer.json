@@ -1,0 +1,15 @@
+{
+    "name": "yveschiu/data-structures",
+    "autoload": {
+        "psr-4": {
+            "Yveschiu\\DataStructures\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "yveschiu",
+            "email": "yves.s.c.chiu@gmail.com"
+        }
+    ],
+    "require": {}
+}
