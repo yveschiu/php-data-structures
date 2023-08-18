@@ -25,6 +25,7 @@ class BST implements Tree
             throw new ArgumentCountError('Cannot create BST from empty array');
         }
         // pick the middle element as the root
+        // Just pretend that here a middle element pickup algorithm is implemented
         sort($data);
         $rootIndex = (int) floor(count($data) / 2);
         $bst = new BST($data[$rootIndex]);
