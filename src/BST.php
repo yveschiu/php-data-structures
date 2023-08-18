@@ -5,8 +5,10 @@ namespace Yveschiu\DataStructures;
 use Yveschiu\DataStructures\Abstracts\Tree;
 use Yveschiu\DataStructures\Node;
 use ArgumentCountError;
+use Yveschiu\DataStructures\Abstracts\MaxFindable;
+use Yveschiu\DataStructures\Abstracts\MinFindable;
 
-class BST implements Tree
+class BST implements Tree, MinFindable, MaxFindable
 {
     public Node $root;
 
@@ -76,6 +78,22 @@ class BST implements Tree
             $node = $data < $node->data ? $node->left : $node->right;
         }
         return null;
+    }
+
+    /**
+     * find the node with minimum value
+     */
+    public function findMin(): Node
+    {
+        return $this->root->min();
+    }
+
+    /**
+     * find the node with maximum value
+     */
+    public function findMax(): Node
+    {
+        return $this->root->max();
     }
 
     /**
