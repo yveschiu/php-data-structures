@@ -22,7 +22,7 @@ class Node
      */
     public function min(): Node
     {
-        return $this->left ? $this->left->min() : $this->left;
+        return $this->left ? $this->left->min() : $this;
     }
 
     /**
@@ -30,13 +30,13 @@ class Node
      */
     public function max(): Node
     {
-        return $this->right ? $this->right->max() : $this->right;
+        return $this->right ? $this->right->max() : $this;
     }
 
     /**
      * find the successor of this node
      */
-    public function successor(): Node
+    public function successor(): ?Node
     {
         if ($this->right) {
             return $this->right->min();
@@ -51,7 +51,7 @@ class Node
     /**
      * find the predecessor of this node
      */
-    public function predecessor(): Node
+    public function predecessor(): ?Node
     {
         if ($this->left) {
             return $this->left->max();
