@@ -11,5 +11,7 @@
             "email": "yves.s.c.chiu@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^10.3"
+    }
 }
