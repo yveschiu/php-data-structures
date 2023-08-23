@@ -9,5 +9,5 @@ interface MinFindable
     /**
      * find the node with maximum value
      */
-    public function findMax(): Node;
+    public function findMin(): Node;
 }
